@@ -4,7 +4,20 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  const str1 = str.toLowerCase().split(" ").join("").replace(/[^\w\s]/g, "");
+  const str2 = str
+    .toLowerCase()
+    .split(" ")
+    .join("")
+    .split("")
+    .reverse()
+    .join("")
+    .replace(/[^\w\s]/g, "");
+  if (str1 === str2) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = isPalindrome;
