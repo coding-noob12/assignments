@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const onclickFunction=async()=>{
+            const principal = document.getElementById("p").value;
+            const time = document.getElementById("t").value;
+            const rate = document.getElementById("r").value;
+
+            const response = await fetch(`http://localhost:3000/si?p=${principal}&t=${time}&r=${rate}`);
+            const data = await response.text();
+            document.getElementById("ans").innerHTML = data;
+        }
+    </script>
+
+</head>
+<body>
+    
+    <div>
+        <input type="text" id="p"> <br> <br>
+        <input type="text" id="t"> <br> <br>
+        <input type="text" id="r"> <br> <br>
+        <button onclick="onclickFunction()">Click</button> <br> <br>
+        <div id="ans"></div>
+    </div>
+
+</body>
+</html>
